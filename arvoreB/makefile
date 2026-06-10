@@ -1,26 +1,42 @@
-GRR= 20231947_20235088
-nomePrograma= prova2_$(GRR)
+# compiladores Cruzados
+MIPS_CC  = mips-linux-gnu-gcc
+RISCV_CC = riscv64-linux-gnu-gcc
 
-# flags de compilação
-CFLAGS = -Wall -Wextra -Werror -g -std=c23 -Wpedantic
-CC = gcc-14
+# flags (-O2 para otimizar, -static para o QEMU, -Wall para avisos)
+CFLAGS   = -O2 -static -Wall
 
-all: $(nomePrograma)
+# arquivos fonte
+SRCS     = main.c arvoreB.c util.c
 
-$(nomePrograma): main.o arvoreB.o util.o
-	$(CC) -o $(nomePrograma) main.o arvoreB.o util.o $(CFLAGS)
+# executáveis de saída
+BIN_MIPS  = bench_mips
+BIN_RISCV = bench_riscv
 
-# compilação da main
-main.o: main.c arvoreB.h
-	$(CC) -c $(CFLAGS) main.c
+.PHONY: all mips riscv run_mips run_riscv asm clean
 
-# compilação da árvore B
-arvoreB.o: arvoreB.c arvoreB.h util.h
-	$(CC) -c $(CFLAGS) arvoreB.c
+# compila MIPS e RISCV
+all: mips riscv
 
-# compilação de útil
-util.o: util.c util.h arvoreB.h
-	$(CC) -c $(CFLAGS) util.c
+# compilação MIPS apenas
+mips: $(SRCS)
+	$(MIPS_CC) $(CFLAGS) $(SRCS) -o $(BIN_MIPS)
+
+# compilação RISC-V apenas
+riscv: $(SRCS)
+	$(RISCV_CC) $(CFLAGS) $(SRCS) -o $(BIN_BIN_RISCV)
+
+# teste  MIPS medindo o tempo de exe
+run_mips: mips
+	time qemu-mips $(BIN_MIPS)
+
+# teste do RISC-V medindo o tempo de exe
+run_riscv: riscv
+	time qemu-riscv64 $(BIN_RISCV)
+
+# gera arquivos assembly (.s) de MIPS e RISCV
+asm:
+	$(MIPS_CC) $(CFLAGS) -S arvoreB.c -o arvoreB_mips.s
+	$(RISCV_CC) $(CFLAGS) -S arvoreB.c -o arvoreB_riscv.s
 
 clean:
-	rm -f *.o *~ $(nomePrograma)
+	rm -f $(BIN_MIPS) $(BIN_RISCV) *.s
