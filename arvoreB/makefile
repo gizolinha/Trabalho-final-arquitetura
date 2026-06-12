@@ -23,15 +23,15 @@ mips: $(SRCS)
 
 # compilação RISC-V apenas
 riscv: $(SRCS)
-	$(RISCV_CC) $(CFLAGS) $(SRCS) -o $(BIN_BIN_RISCV)
+	$(RISCV_CC) $(CFLAGS) $(SRCS) -o $(BIN_RISCV)
 
 # teste  MIPS medindo o tempo de exe
 run_mips: mips
-	time qemu-mips $(BIN_MIPS)
+	time qemu-mips ./$(BIN_MIPS)
 
 # teste do RISC-V medindo o tempo de exe
 run_riscv: riscv
-	time qemu-riscv64 $(BIN_RISCV)
+	time qemu-riscv64 ./$(BIN_RISCV)
 
 # gera arquivos assembly (.s) de MIPS e RISCV
 asm:
