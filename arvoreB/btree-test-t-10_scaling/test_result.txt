@@ -24,7 +24,6 @@ MIPS -> 2.48user 0.01system 0:02.38elapsed 104%CPU (0avgtext+0avgdata 44284maxre
 RISCV -> 2.58user 0.02system 0:02.48elapsed 105%CPU (0avgtext+0avgdata 68540maxresident)k
 4696inputs+0outputs (1major+15513minor)pagefaults 0swaps
 
-
 - T = 10 E = 1000000
 MIPS -> 0.80user 0.01system 0:02.45elapsed 33%CPU (0avgtext+0avgdata 22584maxresident)k
 4704inputs+0outputs (2major+4083minor)pagefaults 0swaps

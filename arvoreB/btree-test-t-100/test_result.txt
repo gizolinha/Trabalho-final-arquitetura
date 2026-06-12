@@ -1,0 +1,15 @@
+T=100 (Grau Alto / Árvore Larga)
+
+- A árvore fica extremamente achatada.
+A busca dentro de um único nó torna-se uma varredura sequencial em um vetor grande. 
+sendo puramente cálculo de CPU (ALU).
+
+- aqui vamos ver qual processador executa loops de comparação de forma mais eficiente 
+(desvios condicionais e incremento de registradores).
+
+- T = 100 E = 5000000
+MIPS -> 7.61user 0.02system 0:06.99elapsed 109%CPU (0avgtext+0avgdata 64556maxresident)k
+0inputs+0outputs (0major+14622minor)pagefaults 0swaps
+
+RISCV -> 6.47user 0.04system 0:06.19elapsed 105%CPU (0avgtext+0avgdata 94288maxresident)k
+0inputs+0outputs (0major+21955minor)pagefaults 0swap

@@ -1,0 +1,13 @@
+T = 20 (Grau Equilibrado / Árvore Média)
+
+- É o "ponto de equilíbrio". A árvore não é nem muito alta, nem muito larga. 
+É o cenário que mais se aproxima de implementações reais de bancos de dados.
+
+- O desempenho costuma ser o mais estável, minimizando extremos de hardware.
+
+- T = 20 E = 5000000
+MIPS -> 5.42user 0.08system 0:05.19elapsed 105%CPU (0avgtext+0avgdata 72236maxresident)k
+4704inputs+0outputs (2major+16514minor)pagefaults 0swaps
+
+RISCV -> 5.26user 0.09system 0:04.94elapsed 108%CPU (0avgtext+0avgdata 110128maxresident)k
+4696inputs+0outputs (1major+25974minor)pagefaults 0swaps
