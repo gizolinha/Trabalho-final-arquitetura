@@ -1,0 +1,51 @@
+- O objetivo nesee caso é provar que os resultados sao consistentes
+ e que o tmepo de execução cresce de forma previsivel
+
+- À medida que a carga de trabalho aumenta, a diferença de performance entre as 
+arquiteturas torna-se mais clara, eliminando o ruído de medição presente em volumes menores
+
+- no caso de um medio termo a diferença é bem sutil em alguns casos
+
+- pontuar que rodamos em maquinas diferentes, gigi tendo 32 de ram e maite 16
+entao algumas diferenças achamos que vieram de diferença entre as maquinas, mas pouca coisa.
+
+
+- T = 10 E = 5000000
+MIPS -> 5.80user 0.10system 0:07.54elapsed 78%CPU (0avgtext+0avgdata 80068maxresident)k
+4704inputs+0outputs (2major+18500minor)pagefaults 0swaps
+
+RISCV -> 5.84user 0.10system 0:05.69elapsed 104%CPU (0avgtext+0avgdata 128540maxresident)k
+4696inputs+0outputs (1major+30504minor)pagefaults 0swaps
+
+- T = 10 E = 2500000
+MIPS -> 2.48user 0.01system 0:02.38elapsed 104%CPU (0avgtext+0avgdata 44284maxresident)k
+4704inputs+0outputs (2major+9510minor)pagefaults 0swaps
+
+RISCV -> 2.58user 0.02system 0:02.48elapsed 105%CPU (0avgtext+0avgdata 68540maxresident)k
+4696inputs+0outputs (1major+15513minor)pagefaults 0swaps
+
+
+- T = 10 E = 1000000
+MIPS -> 0.80user 0.01system 0:02.45elapsed 33%CPU (0avgtext+0avgdata 22584maxresident)k
+4704inputs+0outputs (2major+4083minor)pagefaults 0swaps
+
+RISCV -> 0.84user 0.00system 0:00.79elapsed 105%CPU (0avgtext+0avgdata 32028maxresident)k
+4696inputs+0outputs (1major+6467minor)pagefaults 0swaps
+
+- T = 10 E = 500000
+MIPS -> 0.34user 0.00system 0:00.33elapsed 103%CPU (0avgtext+0avgdata 15412maxresident)k
+4704inputs+0outputs (2major+2284minor)pagefaults 0swaps
+
+RISCV -> 0.32user 0.02system 0:00.33elapsed 103%CPU (0avgtext+0avgdata 20272maxresident)k
+4696inputs+0outputs (1major+3471minor)pagefaults 0swaps
+
+
+# Resultados dos Experimentos
+
+## T=10 (meio-termo estável)
+| Elementos | Tempo MIPS | Tempo RISC-V |
+| :--- | :--- | :--- |
+| 500k | 0.34s | 0.32s |
+| 1M | 0.80s | 0.84s |
+| 2.5M | 2.48s | 2.58s |
+| 5M | 5.80s | 5.84s |

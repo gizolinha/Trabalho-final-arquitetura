@@ -5,8 +5,8 @@
 
 #include "arvoreB.h"
 
-#define GRAU_MINIMO_T 3
-#define TOTAL_ELEMENTOS 1000000
+#define GRAU_MINIMO_T 10
+#define TOTAL_ELEMENTOS 500000
 
 int main() {
     // semente fixa para garantir que o MIPS e o RISC-V vão testar os mesmos números
