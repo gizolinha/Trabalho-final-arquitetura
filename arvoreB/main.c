@@ -5,7 +5,7 @@
 
 #include "arvoreB.h"
 
-#define GRAU_MINIMO_T 100
+#define GRAU_MINIMO_T 3
 #define TOTAL_ELEMENTOS 5000000
 
 int main() {
