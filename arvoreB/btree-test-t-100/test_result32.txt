@@ -1,0 +1,8 @@
+- T = 100 E = 5000000
+
+MIPS= 6.58user 0.02system 0:06.62elapsed 99%CPU (0avgtext+0avgdata 69204maxresident)k
+6096inputs+0outputs (18major+14987minor)pagefaults 0swaps
+
+RISCV32 = 4.84user 0.02system 0:04.87elapsed 99%CPU (0avgtext+0avgdata 68224maxresident)k
+64inputs+0outputs (0major+15028minor)pagefaults 0swaps
+

@@ -1,6 +1,7 @@
 # compiladores Cruzados
 MIPS_CC  = mips-linux-gnu-gcc
-RISCV_CC = riscv64-linux-gnu-gcc
+# RISCV_CC = riscv64-linux-gnu-gcc
+RISCV_CC = riscv32-unknown-linux-gnu-gcc
 
 # flags (-O2 para otimizar, -static para o QEMU, -Wall para avisos)
 CFLAGS   = -O2 -static -Wall
@@ -31,7 +32,7 @@ run_mips: mips
 
 # teste do RISC-V medindo o tempo de exe
 run_riscv: riscv
-	time qemu-riscv64 ./$(BIN_RISCV)
+	time qemu-riscv32 ./$(BIN_RISCV)
 
 # gera arquivos assembly (.s) de MIPS e RISCV
 asm:
